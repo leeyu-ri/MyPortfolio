@@ -3,7 +3,6 @@
   /* vh : viewport height 브라우저 화면의 세로 높이 기준 단위 */
   min-height: 100vh;
   display: flex;
-  /* 텍스트가 화면 세로 중앙에 오도록 배치 */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -21,4 +20,62 @@
   color: #000000;
   margin: 0;
   text-align: center;
+}
+
+.overview {
+  padding: 100px 40px;
+}
+
+.overviewTitle {
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 60px 0;
+  border-top: 2px solid #000;
+  padding-top: 20px;
+}
+
+.overviewText {
+  max-width: 700px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+.overviewCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.overviewCard {
+  position: relative;
+  display: block;
+  background-color: #f5f5f5;
+  padding: 40px;
+  min-height: 220px;
+  text-decoration: none;
+  color: #000;
+  transition: background-color 0.2s ease;
+}
+
+.overviewCard:hover {
+  background-color: #ebebeb;
+}
+
+.overviewCardTitle {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.overviewCardArrow {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
 }
