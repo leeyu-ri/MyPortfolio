@@ -1,0 +1,24 @@
+.hero {
+  /* 브라우저 화면 높이 */
+  /* vh : viewport height 브라우저 화면의 세로 높이 기준 단위 */
+  min-height: 100vh;
+  display: flex;
+  /* 텍스트가 화면 세로 중앙에 오도록 배치 */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5vw;
+}
+
+.heroText {
+  /* font-size: clamp(최소값, 선호값, 최대값) : 반응형 폰트 크기를 미디어쿼리 없이 처리하는 함수 */
+  /* 화면이 작아지면 최소 2.5rem까지만 작아짐 */
+  /* 화면이 커지면 최대 6rem까지만 커짐 */
+  /* 평소엔 화면 너비의 8%(8vm) 크기로 자동 조절 */
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+}

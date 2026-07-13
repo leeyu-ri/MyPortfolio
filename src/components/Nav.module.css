@@ -1,0 +1,16 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 5vw;
+  z-index: 100;
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s ease;
+}
+.nav :hover {
+  opacity: 0.5;
+}
