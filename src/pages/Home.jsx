@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
+import Hero from "../components/Hero";
 
 function Home() {
   return (
     <div>
-      <div className={styles.hero}>
-        <p className={styles.heroText}>
-          문제를 발견하고 <br />
-          해결하는 <br />
-          개발자입니다.
-        </p>
-      </div>
+      <Hero />
 
       <section className={styles.overview}>
         <h2 className={styles.overviewTitle}>Overview</h2>
