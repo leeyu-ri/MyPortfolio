@@ -18,22 +18,25 @@ export default function Hero() {
       </nav>
       <h1 className={styles.heroTitle}>
         <span className={styles.line}>
-          THOROUGH
+          Thorough
           <span className={styles.dot} aria-hidden="true"></span>
         </span>
 
-        <span className={styles.line}>
+        <span className={styles.line} style={{ marginLeft: "100px" }}>
           <img src={tomatoImg} className={styles.icon} />
-          PROACTIVE
+          Proactive
         </span>
 
-        <span className={`${styles.line} ${styles.lineIcon}`}>
-          RESOURCEFUL
+        <span
+          className={`${styles.line} ${styles.lineIcon}`}
+          style={{ marginLeft: "300px" }}
+        >
+          Resourceful
           <img src={NotebookImg} className={styles.iconNoteBook} />
         </span>
 
-        <span className={styles.line} style={{ marginLeft: "30px" }}>
-          PERSISTENT
+        <span className={styles.line} style={{ marginLeft: "90px" }}>
+          Persistent
         </span>
       </h1>
     </section>

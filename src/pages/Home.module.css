@@ -27,7 +27,7 @@
 }
 
 .overviewTitle {
-  font-size: 80px;
+  font-size: clamp(48px, 9vw, 158px);
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0 0 30px 0;
