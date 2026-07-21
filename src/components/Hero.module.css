@@ -58,7 +58,7 @@
   /* text-transform: uppercase; */
   color: #16151a;
   font-size: clamp(48px, 9vw, 158px);
-  line-height: 1.05;
+  line-height: 1;
   letter-spacing: -0.01em;
 }
 
