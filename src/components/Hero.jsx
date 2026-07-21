@@ -1,6 +1,6 @@
-
 import cameraImg from "../assets/camera.jpg";
 import tomatoImg from "../assets/tomato.jpg";
+import NotebookImg from "../assets/Notebook.jpg";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
@@ -10,8 +10,9 @@ export default function Hero() {
         <button className={styles.hamburger} aria-label="메뉴 열기">
           <span />
           <span />
+          <span />
         </button>
-        <a href="#resume" className={styles.ctapill}>
+        <a href="#resume" className={styles.ctaPill}>
           See Resume
         </a>
       </nav>
@@ -22,16 +23,18 @@ export default function Hero() {
         </span>
 
         <span className={styles.line}>
-          <img src={cameraImg} className={styles.icon} />
+          <img src={tomatoImg} className={styles.icon} />
           PROACTIVE
         </span>
 
         <span className={`${styles.line} ${styles.lineIcon}`}>
-          <img src={tomatoImg} className={styles.icon} />
           RESOURCEFUL
+          <img src={NotebookImg} className={styles.iconNoteBook} />
         </span>
 
-        <span className={styles.line}>PERSISTENT</span>
+        <span className={styles.line} style={{ marginLeft: "30px" }}>
+          PERSISTENT
+        </span>
       </h1>
     </section>
   );
