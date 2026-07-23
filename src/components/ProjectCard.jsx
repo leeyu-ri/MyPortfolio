@@ -1,51 +1,46 @@
+import { useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
 
 function ProjectCard({ project }) {
-  const { title, subtitle, period, type, description, stack, github, demo } =
-    project;
+  const { id, title, subtitle, type, demoVideo, poster } = project;
+  const videoRef = useRef(null);
+
+  const handleMouseEnter = () => {
+    videoRef.current?.play();
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
 
   return (
-    <div className={styles.card}>
-      <div className={styles.header}>
+    <Link
+      to={`/project/${id}`}
+      className={styles.card}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <video
+        ref={videoRef}
+        src={demoVideo}
+        poster={poster}
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className={styles.media}
+      />
+
+      <div className={styles.info}>
+        <h3 className={styles.title}>{title}</h3>
         <span className={styles.type}>{type}</span>
-        <span className={styles.period}>{period}</span>
+        <p className={styles.subtitle}>{subtitle}</p>
       </div>
-
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.subtitle}>{subtitle}</p>
-      <p className={styles.description}>{description}</p>
-
-      <ul className={styles.stackList}>
-        {stack.map((tech) => (
-          <li key={tech} className={styles.stackItem}>
-            {tech}
-          </li>
-        ))}
-      </ul>
-
-      <div className={styles.links}>
-        {github && (
-          <a
-            href={github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-          >
-            GitHub
-          </a>
-        )}
-        {demo && (
-          <a
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.link}
-          >
-            Demo
-          </a>
-        )}
-      </div>
-    </div>
+    </Link>
   );
 }
 

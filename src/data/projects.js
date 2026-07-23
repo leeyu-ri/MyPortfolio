@@ -9,6 +9,8 @@ const projects = [
       "React / Spring Boot 3 / Supabase 기반 사내 협업 플랫폼. 전자결재와 조직도 모듈을 담당했습니다.",
     stack: ["React", "Spring Boot", "Supabase", "OCI"],
     github: "https://github.com/leeyu-ri/WorkSync",
+    demoVideo: "/WorkSyncDemo.mp4",
+    poster: "/WorkSyncMain.png",
     demo: "https://worksync.kr/",
   },
   {
@@ -21,6 +23,8 @@ const projects = [
       "Spring Boot / Thymeleaf 기반 갤러리 예약 시스템. AWS EC2 배포와 CI/CD 파이프라인을 구축했습니다.",
     stack: ["Spring Boot", "Thymeleaf", "AWS EC2", "Docker", "GitHub Actions"],
     github: "https://github.com/leeyu-ri/GalleryReservation",
+    demoVideo: "/WorkSyncDemo.mp4",
+    poster: "/WorkSyncMain.png",
     demo: "http://13.125.228.1",
   },
 ];

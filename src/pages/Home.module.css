@@ -80,3 +80,31 @@
   display: flex;
   align-items: center;
 }
+
+.overviewTitle,
+.overviewText,
+.overviewCards {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.overview.visible .overviewTitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.overview.visible .overviewText {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+.overview.visible .overviewCards {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.4s;
+}

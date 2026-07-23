@@ -6,13 +6,11 @@ function Project() {
   return (
     <div className={styles.project}>
       <h1 className={styles.projectTitle}>My Project</h1>
-      {projects.map((project) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          className={styles.projectList}
-        />
-      ))}
+      <div className={styles.projectList}>
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
     </div>
   );
 }

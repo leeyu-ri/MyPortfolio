@@ -1,13 +1,38 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import Hero from "../components/Hero";
 
 function Home() {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // 한 번만 실행
+        }
+      },
+      { threshold: 0.2 }, // 20% 보이면 트리거
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div>
       <Hero />
 
-      <section className={styles.overview}>
+      <section
+        ref={sectionRef}
+        className={`${styles.overview} ${isVisible ? styles.visible : ""}`}
+      >
         <h2 className={styles.overviewTitle}>Overview</h2>
 
         <p className={styles.overviewText}>
