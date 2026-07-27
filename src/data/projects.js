@@ -1,6 +1,6 @@
 const projects = [
   {
-    id: 1,
+    id: "1",
     title: "WorkSync",
     subtitle: "사내 협업 플랫폼",
     period: "2026.05 ~ 2026.06",
@@ -10,11 +10,11 @@ const projects = [
     stack: ["React", "Spring Boot", "Supabase", "OCI"],
     github: "https://github.com/leeyu-ri/WorkSync",
     demoVideo: "/WorkSyncDemo.mp4",
-    poster: "/WorkSyncMain.png",
+    poster: "/WorkSyncMain2.png",
     demo: "https://worksync.kr/",
   },
   {
-    id: 2,
+    id: "2",
     title: "GalleryReservation",
     subtitle: "갤러리 예약 시스템",
     period: "2026.03 ~ 2026.04.08",
@@ -24,7 +24,7 @@ const projects = [
     stack: ["Spring Boot", "Thymeleaf", "AWS EC2", "Docker", "GitHub Actions"],
     github: "https://github.com/leeyu-ri/GalleryReservation",
     demoVideo: "/WorkSyncDemo.mp4",
-    poster: "/WorkSyncMain.png",
+    poster: "/WorkSyncMain2.png",
     demo: "http://13.125.228.1",
   },
 ];
