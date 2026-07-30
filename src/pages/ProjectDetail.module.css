@@ -1,49 +1,83 @@
 .page {
-  padding: 32px 100px 80px;
+  padding: 80px 100px 80px;
 }
 
 .backButton {
   display: inline-block;
-  font-size: 24px;
+  font-size: 40px;
+  font-weight: 700;
   margin-bottom: 40px;
+  padding-top: 50px;
   text-decoration: none;
-  color: #000;
+  color: #e02424;
 }
 
 .header {
   display: flex;
-  gap: 16px;
   align-items: center;
-  margin-bottom: 12px;
+  gap: 10px;
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e02424;
+  display: inline-block;
 }
 
 .type {
-  font-size: 14px;
-  color: #666;
+  color: #888;
+  font-size: 16px;
 }
 
 .period {
-  font-size: 14px;
   color: #999;
 }
 
 .title {
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(28px, 5vw, 38px);
   font-weight: 800;
-  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+  border-top: 2px solid #000;
+  padding-top: 6dvb;
+  margin: 0 0 20px 0;
 }
 
 .subtitle {
-  font-size: 18px;
+  font-size: 22px;
   color: #444;
+  font-weight: 600;
   margin-bottom: 24px;
+  padding-top: 30px;
 }
 
 .description {
-  font-size: 16px;
+  max-width: 800px;
+  font-size: 20px;
   line-height: 1.7;
   color: #333;
-  margin-bottom: 40px;
+  margin: 30px 0 100px 0;
+}
+
+.description p {
+  max-width: 740px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: -0.03em;
+  color: #333;
+  margin-bottom: 5px;
+  word-break: keep-all;
+}
+
+.highlight {
+  color: #e02424;
+  font-weight: 500;
 }
 
 .stackList {
@@ -63,7 +97,7 @@
 
 .links {
   display: flex;
-  
+
   gap: 16px;
 }
 
@@ -72,4 +106,63 @@
   font-weight: 600;
   text-decoration: underline;
   color: #000;
+}
+
+.infoSection {
+  margin-bottom: 60px;
+}
+
+.infoTitle {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.infoTable {
+  background-color: #fcfbfb;
+  padding: 8px 32px;
+  margin: 0;
+}
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoLabel {
+  width: 100px;
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.infoValue {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.infoLinkTag {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #e02424;
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.infoLinkTag:hover {
+  background-color: #b81c1c;
 }
