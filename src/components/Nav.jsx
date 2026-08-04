@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import tomatoIcon from "../assets/Tomato.jpg";
 import styles from "./Nav.module.css";
 
 function Nav() {
@@ -12,13 +11,23 @@ function Nav() {
     setIsMenuOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setIsMenuOpen(false);
+    };
+    document.addEventListener("keydown", handleEsc);
+    return () => document.removeEventListener("keydown", handleEsc);
+  });
+
   return (
     <nav className={`${styles.nav} ${isAboutPage ? styles.navDark : ""}`}>
       <div className={styles.left}>
         <button
           className={styles.menuButton}
           onClick={toggleMenu}
-          aria-label="메뉴 열기"
+          aria-label={isMenuOpen ? "메뉴 닫기" : "메뉴 열기"}
+          aria-expanded={isMenuOpen}
+          aria-controls="nav-dropdown"
         >
           <span className={styles.line} />
           <span className={styles.line} />
@@ -37,7 +46,7 @@ function Nav() {
       </div>
 
       {isMenuOpen && (
-        <div className={styles.dropdown}>
+        <div className={styles.dropdown} id="nav-dropdown">
           <Link
             to="/"
             className={styles.dropdownLink}

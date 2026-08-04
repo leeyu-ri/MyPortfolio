@@ -100,7 +100,58 @@ const projects = [
     github: "https://github.com/leeyu-ri/GalleryReservation",
     demoVideo: "/GalleryReservation.mp4",
     poster: "/GalleryReservation2.png",
-    demo: "http://13.125.228.1",
+    demo: "http://16.176.8.20/",
+  },
+  {
+    id: "3",
+    title: "Portfolio Website",
+    subtitle: "개인 포트폴리오 웹사이트",
+    period: "2026.07 ~ 진행중",
+    type: "개인 프로젝트",
+    description: [
+      [
+        { text: "제가 진행한 프로젝트와 기술 스택을 소개하는 " },
+        { text: "개인 포트폴리오 웹사이트", highlight: true },
+        { text: "입니다." },
+      ],
+      [
+        { text: "IntersectionObserver 기반 " },
+        { text: "스크롤 순차 fade-in 애니메이션", highlight: true },
+        { text: " 적용" },
+      ],
+      [
+        { text: "프로젝트 카드 호버 및 " },
+        { text: "키보드 포커스 시 데모 영상 자동 재생", highlight: true },
+      ],
+      [
+        { text: "프로젝트 상세 페이지에 " },
+        { text: "아코디언 형태의 트러블슈팅 섹션", highlight: true },
+        { text: " 구성" },
+      ],
+      [
+        { text: "About 페이지에 " },
+        { text: "캔버스 기반 별 배경 애니메이션", highlight: true },
+        { text: " 직접 구현" },
+      ],
+      [
+        { text: "alt, aria-label, 키보드 포커스 대응 등 " },
+        { text: "웹 접근성", highlight: true },
+        { text: " 고려" },
+      ],
+      [
+        { text: "기획부터 디자인, 개발, 배포까지 " },
+        { text: "전 과정을 스스로 진행", highlight: true },
+        { text: "한 프로젝트입니다." },
+      ],
+    ],
+    features:
+      "Home 스크롤 애니메이션, 프로젝트 카드 UI, 상세 페이지 아코디언, About 페이지 배경 애니메이션 직접 기획 및 구현",
+    contribution: "100%",
+    stack: ["React", "Vite", "React Router", "CSS Modules"],
+    github: "https://github.com/leeyu-ri/portfolio",
+    demoVideo: "/PortfolioDemo.mp4",
+    poster: "/PortfolioMain.png",
+    demo: "https://leeyuri-portfolio.vercel.app/",
   },
 ];
 

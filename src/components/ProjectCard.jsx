@@ -47,6 +47,8 @@ function ProjectCard({ project }) {
       className={`${styles.card} ${isVisible ? styles.visible : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onFocus={handleMouseEnter}
+      onBlur={handleMouseLeave}
     >
       <div className={styles.mediaWrapper}>
         <img
@@ -64,9 +66,10 @@ function ProjectCard({ project }) {
           preload="metadata"
           className={styles.videoMedia}
           style={{ opacity: isHovered ? 1 : 0 }}
+          aria-hidden="true"
         />
       </div>
-{/*  */}
+      {/*  */}
       <div className={styles.info}>
         <h3 className={styles.title}>{title}</h3>
         <span className={styles.type}>{type}</span>
