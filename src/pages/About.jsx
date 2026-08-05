@@ -50,10 +50,20 @@ export default function About() {
             </div>
 
             <div className={styles.linkLine}>
-              <a href="#" className={styles.linkTag}>
+              <a
+                href="https://app.notion.com/p/3b26e780c0d080bfa37adae3aa493ec2?source=copy_link"
+                className={styles.linkTag}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Resume
               </a>
-              <a href="#" className={styles.linkValue}>
+              <a
+                href="https://app.notion.com/p/3b26e780c0d080bfa37adae3aa493ec2?source=copy_link"
+                className={styles.linkValue}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 이력서 보기
               </a>
             </div>

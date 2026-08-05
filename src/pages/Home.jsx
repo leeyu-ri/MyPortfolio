@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import Hero from "../components/Hero";
+import SecondSection from "../components/SecondSection";
 
 function Home() {
   const sectionRef = useRef(null);
@@ -28,7 +29,8 @@ function Home() {
   return (
     <div>
       <Hero />
-
+      <SecondSection />
+      <section calssName={styles.overview}></section>
       <section
         ref={sectionRef}
         className={`${styles.overview} ${isVisible ? styles.visible : ""}`}

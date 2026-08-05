@@ -23,16 +23,14 @@
 }
 
 .overview {
-  padding: 32px 100px 80px;
+  padding: 32px 160px 80px 100px;
 }
 
 .overviewTitle {
   font-size: clamp(48px, 9vw, 158px);
   font-weight: 800;
   letter-spacing: -0.02em;
-  margin: 0 0 30px 0;
-  border-top: 2px solid #000;
-  padding-top: 20px;
+  padding: 100px 0 30px 0;
 }
 
 .overviewText {

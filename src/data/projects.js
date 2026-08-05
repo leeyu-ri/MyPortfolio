@@ -149,8 +149,8 @@ const projects = [
     contribution: "100%",
     stack: ["React", "Vite", "React Router", "CSS Modules"],
     github: "https://github.com/leeyu-ri/portfolio",
-    demoVideo: "/PortfolioDemo.mp4",
-    poster: "/PortfolioMain.png",
+    demoVideo: "/MyPortfolio.mp4",
+    poster: "/MyPortfolio2.png",
     demo: "https://leeyuri-portfolio.vercel.app/",
   },
 ];

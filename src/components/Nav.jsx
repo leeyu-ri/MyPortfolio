@@ -40,8 +40,14 @@ function Nav() {
       </div>
 
       <div className={styles.right}>
-        <a href="#resume" className={styles.ctaPill}>
+        <a
+          href="https://app.notion.com/p/3b26e780c0d080bfa37adae3aa493ec2?source=copy_link"
+          className={styles.ctaPill}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           See Resume
+          <span className={styles.srOnly}>(새 탭에서 열림)</span>
         </a>
       </div>
 

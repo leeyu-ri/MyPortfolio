@@ -101,9 +101,17 @@
   right: 5.3em;
   width: 12px;
   height: 12px;
-
   background: #e02424;
   animation: float 2.4s ease-in-out infinite;
+  opacity: 0;
+  filter: blur(4px);
+  transition:
+    opacity 0.8s ease,
+    filter 0.8s ease;
+}
+.dot.dotShow {
+  opacity: 1;
+  filter: blur(0);
 }
 
 @media (max-width: 480px) {
@@ -142,4 +150,84 @@
 
 .indent3 {
   margin-left: clamp(15px, 3vw, 90px);
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(-30px);
+  filter: blur(6px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) transform 0.7s
+    cubic-bezier(0.16, 1, 0.3, 1) filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.maskInner {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.maskInner.show {
+  transform: translateY(0);
+}
+
+.iconReveal {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(6px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.iconReveal.show {
+  opacity: 1;
+  filter: blur(0);
+}
+.scrollHint {
+  position: absolute;
+  bottom: 40px;
+  right: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #16151a;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  transition-delay: 1.3s; /* 텍스트 등장이 다 끝난 뒤 나타나도록 */
+}
+
+.scrollHint.show {
+  opacity: 1;
+}
+
+.scrollText {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.scrollArrow {
+  font-size: 18px;
+  animation: bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
 }

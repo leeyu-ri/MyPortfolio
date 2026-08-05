@@ -71,8 +71,9 @@ function ProjectCard({ project }) {
       </div>
       {/*  */}
       <div className={styles.info}>
-        <h3 className={styles.title}>{title}</h3>
         <span className={styles.type}>{type}</span>
+        <h3 className={styles.title}>{title}</h3>
+
         <p className={styles.subtitle}>{subtitle}</p>
       </div>
     </Link>
