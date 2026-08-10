@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import tomatoImg from "../assets/tomato.jpg";
+import tomatoImg from "../assets/Tomato.jpg";
 import NotebookImg from "../assets/Laptop.jpg";
 import styles from "./Hero.module.css";
 
