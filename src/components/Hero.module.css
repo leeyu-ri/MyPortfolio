@@ -102,6 +102,7 @@
   width: 12px;
   height: 12px;
   background: #e02424;
+  border-radius: 999px;
   animation: float 2.4s ease-in-out infinite;
   opacity: 0;
   filter: blur(4px);
