@@ -5,6 +5,22 @@ const projects = [
     subtitle: "사내 협업 플랫폼",
     period: "2026.05 ~ 2026.06",
     type: "팀 프로젝트",
+    troubleshooting: [
+      {
+        id: "ts-1",
+        title: "전자결재 상태값 동기화 오류",
+        problem:
+          "결재 승인 후 목록 화면에서 상태가 즉시 갱신되지 않는 문제 발생",
+        solution:
+          "낙관적 업데이트(optimistic update) 대신 승인 API 응답을 받은 뒤 상태를 갱신하도록 로직 변경",
+      },
+      {
+        id: "ts-2",
+        title: "연차 관리 날짜 계산 오차",
+        problem: "...",
+        solution: "...",
+      },
+    ],
     description: [
       [
         {

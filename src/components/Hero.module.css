@@ -56,26 +56,6 @@
   gap: 0.25em;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-12px);
-  }
-}
-
-@keyframes floatTilted {
-  0%,
-  100% {
-    transform: rotate(-8deg) translateY(0);
-  }
-  50% {
-    transform: rotate(-8deg) translateY(-10px);
-  }
-}
-
 .icon {
   height: 0.6em;
   width: auto;
@@ -113,32 +93,6 @@
 .dot.dotShow {
   opacity: 1;
   filter: blur(0);
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 20px 20px 56px;
-  }
-
-  .heroTitle {
-    font-size: 11vw; /* 13vw → 11vw로 더 축소 */
-    margin-top: 32px;
-    line-height: 1.15; /* 살짝 여유 있게 */
-  }
-
-  /* 모든 들여쓰기를 최소화 */
-  .indent1,
-  .indent2,
-  .indent3 {
-    margin-left: 8px;
-  }
-
-  /* 아이콘 완전히 숨김 — 좁은 화면에서 겹침 유발 요소 제거 */
-  .icon,
-  .iconNoteBook,
-  .dot {
-    display: none;
-  }
 }
 
 .indent1 {
@@ -230,5 +184,49 @@
   }
   50% {
     transform: translateY(6px);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatTilted {
+  0%,
+  100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-8deg) translateY(-10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px 20px 56px;
+  }
+
+  .heroTitle {
+    font-size: 11vw;
+    margin-top: 32px;
+    line-height: 1.15;
+  }
+
+  .indent1,
+  .indent2,
+  .indent3 {
+    margin-left: 8px;
+  }
+
+  .icon,
+  .iconNoteBook,
+  .dot {
+    display: none;
   }
 }

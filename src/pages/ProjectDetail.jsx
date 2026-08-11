@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import projects from "../data/projects";
 import styles from "./ProjectDetail.module.css";
@@ -5,6 +6,7 @@ import styles from "./ProjectDetail.module.css";
 function ProjectDetail() {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
+  const [openId, setOpenId] = useState(null);
 
   if (!project) return <div>프로젝트를 찾을 수 없습니다.</div>;
 
@@ -19,7 +21,12 @@ function ProjectDetail() {
     stack,
     github,
     demo,
+    troubleshooting,
   } = project;
+
+  const toggleTrouble = (troubleId) => {
+    setOpenId((prev) => (prev === troubleId ? null : troubleId));
+  };
 
   return (
     <div className={styles.page}>
@@ -100,6 +107,51 @@ function ProjectDetail() {
           </div>
         </dl>
       </section>
+
+      {troubleshooting && troubleshooting.length > 0 && (
+        <section className={styles.infoSection}>
+          <h2 className={styles.infoTitle}>트러블슈팅</h2>
+
+          <div className={styles.infoTable}>
+            {troubleshooting.map((item) => {
+              const isOpen = openId === item.id;
+              return (
+                <div key={item.id} className={styles.troubleRow}>
+                  <button
+                    type="button"
+                    className={styles.troubleButton}
+                    onClick={() => toggleTrouble(item.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`trouble-content-${item.id}`}
+                  >
+                    <span>{item.title}</span>
+                    <span
+                      className={isOpen ? styles.chevronOpen : styles.chevron}
+                      aria-hidden="true"
+                    >
+                      ▾
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div
+                      id={`trouble-content-${item.id}`}
+                      className={styles.troubleContent}
+                    >
+                      <p>
+                        <strong>문제</strong> {item.problem}
+                      </p>
+                      <p>
+                        <strong>해결</strong> {item.solution}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

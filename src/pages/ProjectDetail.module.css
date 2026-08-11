@@ -166,3 +166,37 @@
 .infoLinkTag:hover {
   background-color: #b81c1c;
 }
+
+.troubleButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  text-align: left;
+}
+
+.chevron,
+.chevronOpen {
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.troubleContent {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+  color: var(--text-secondary, #666);
+}
+
+.troubleContent p {
+  margin: 0.25rem 0;
+}

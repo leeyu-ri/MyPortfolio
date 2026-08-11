@@ -5,7 +5,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* center → space-between으로 변경 */
+  justify-content: space-between;
   padding: 30px 5vw;
   z-index: 100;
   letter-spacing: 0.02em;
