@@ -1,22 +1,21 @@
-.secondSection {
+.pinWrapper {
   position: relative;
+}
+
+.secondSection {
+  position: sticky;
+  top: 0;
   min-height: 100vh;
   background-color: #000;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 100px 80px;
+  padding: 80px 100px 100px;
   box-sizing: border-box;
-
-  opacity: 0;
-  transform: translateY(80px);
-  transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.secondSection.visible {
+.secondSection.visible .secondMain {
   opacity: 1;
   transform: translateY(0);
 }
@@ -76,6 +75,12 @@
   flex-direction: column;
   align-items: center;
   color: #fff;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sectionTop {
@@ -105,4 +110,69 @@
   letter-spacing: -0.01em;
   text-align: center;
   word-break: keep-all;
+}
+
+.frame {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 50px;
+}
+
+.frameImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.frameImgActive {
+  opacity: 1;
+}
+
+.corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #e02424;
+  border-style: solid;
+}
+
+.cornerTl {
+  top: -8px;
+  left: -8px;
+  border-width: 1px 0 0 1px;
+}
+
+.cornerTr {
+  top: -8px;
+  right: -8px;
+  border-width: 1px 1px 0 0;
+}
+
+.cornerBl {
+  bottom: -8px;
+  left: -8px;
+  border-width: 0 0 1px 1px;
+}
+
+.cornerBr {
+  bottom: -8px;
+  right: -8px;
+  border-width: 0 1px 1px 0;
+}
+
+@media (max-width: 768px) {
+  .secondSection {
+    padding: 60px 24px 80px;
+  }
+
+  .frame {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+  }
 }
