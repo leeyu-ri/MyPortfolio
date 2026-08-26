@@ -30,7 +30,6 @@ function Home() {
     <div>
       <Hero />
       <SecondSection />
-      <section calssName={styles.overview}></section>
       <section
         ref={sectionRef}
         className={`${styles.overview} ${isVisible ? styles.visible : ""}`}

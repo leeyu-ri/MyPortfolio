@@ -138,3 +138,17 @@
   transform: translateY(0);
   transition-delay: 1.4s;
 }
+
+@media (max-width: 768px) {
+  .overview {
+    padding: 60px 24px 80px;
+  }
+
+  .overviewTitle {
+    padding: 40px 0 20px 0;
+  }
+
+  .overviewCards {
+    grid-template-columns: 1fr;
+  }
+}

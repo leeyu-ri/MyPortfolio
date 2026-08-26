@@ -104,4 +104,5 @@
   line-height: 1.7;
   letter-spacing: -0.01em;
   text-align: center;
+  word-break: keep-all;
 }
