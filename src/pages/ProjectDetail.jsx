@@ -20,6 +20,7 @@ function ProjectDetail() {
     contribution,
     stack,
     github,
+    figma,
     demo,
     troubleshooting,
   } = project;
@@ -36,7 +37,6 @@ function ProjectDetail() {
       <div className={styles.header}>
         <span className={styles.type}>{type}</span>
       </div>
-
       <h1 className={styles.title}>{title}</h1>
 
       <div className={styles.description}>
@@ -92,6 +92,22 @@ function ProjectDetail() {
               </a>
             </dd>
           </div>
+
+          {figma && (
+            <div className={styles.infoRow}>
+              <dt className={styles.infoLabel}>Figma</dt>
+              <dd className={styles.infoValue}>
+                <a
+                  href={figma}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.infoLinkTag}
+                >
+                  와이어프레임 URL
+                </a>
+              </dd>
+            </div>
+          )}
 
           <div className={styles.infoRow}>
             <dt className={styles.infoLabel}>URL</dt>

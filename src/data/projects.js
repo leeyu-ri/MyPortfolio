@@ -182,6 +182,11 @@ public DashboardResponse getDashboard(Long employeeId) {
         { text: "으로 처리 현황 확인" },
       ],
       [
+        { text: "Figma로 " },
+        { text: "와이어프레임 설계와 공통 컴포넌트 UI 검수", highlight: true },
+        { text: "를 진행" },
+      ],
+      [
         { text: "사내 시스템을 " },
         {
           text: "직접 설계 및 구축 해보고자 하는 학습 목적의 개발",
@@ -193,6 +198,8 @@ public DashboardResponse getDashboard(Long employeeId) {
     contribution: "40%",
     stack: ["React", "Spring Boot", "Supabase", "OCI"],
     github: "https://github.com/leeyu-ri/WorkSync",
+    figma:
+      "https://www.figma.com/design/WnMtbKK7Ys3FhOjMdb8Ucq/%EA%B7%B8%EB%A3%B9%EC%9B%A8%EC%96%B4-%EC%8B%9C%EC%8A%A4%ED%85%9C---%EC%82%AC%EB%82%B4-%EB%A9%94%EC%8B%A0%EC%A0%80--%EB%B3%B5%EC%82%AC-?node-id=281-3558",
     demoVideo: "/WorkSyncDemo.mp4",
     poster: "/WorkSyncMain2.png",
     demo: "https://worksync.kr/",
