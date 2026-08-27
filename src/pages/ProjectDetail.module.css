@@ -169,22 +169,6 @@
   background-color: #b81c1c;
 }
 
-.troubleButton {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 16px 20px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  font-size: 18px;
-  color: #111;
-  transition: background 0.2s ease;
-}
-
 .troubleButton:hover {
   background: #f2f2f2;
 }
@@ -229,12 +213,27 @@
 }
 
 .troubleRow {
-  padding: 8px 0;
   border-bottom: 1px solid #e5e5e5;
 }
 
 .troubleRow:last-child {
   border-bottom: none;
+}
+
+.troubleButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 18px;
+  color: #111;
+  transition: background 0.2s ease;
 }
 
 .troubleCode {
