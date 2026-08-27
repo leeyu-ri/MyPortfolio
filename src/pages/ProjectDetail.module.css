@@ -44,8 +44,8 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   border-top: 2px solid #000;
-  padding-top: 6px;
-  margin: 0 0 20px 0;
+  padding-top: 45px;
+  margin: 0 0 30px 0;
 }
 
 .subtitle {
@@ -61,7 +61,7 @@
   font-size: 20px;
   line-height: 1.7;
   color: #333;
-  margin: 30px 0 100px 0;
+  margin: 20px 0 50px 0;
 }
 
 .description p {
@@ -174,29 +174,81 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: none;
+  gap: 16px;
+  padding: 16px 20px;
+  background: transparent;
   border: none;
   cursor: pointer;
-  font: inherit;
-  color: inherit;
-  padding: 0;
   text-align: left;
+  font-size: 18px;
+  color: #111;
+  transition: background 0.2s ease;
+}
+
+.troubleButton:hover {
+  background: #f2f2f2;
 }
 
 .chevron,
 .chevronOpen {
-  transition: transform 0.2s ease;
   flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ececec;
+  color: #333;
+  font-size: 13px;
+  transition:
+    transform 0.25s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.chevron {
+  transform: rotate(0deg);
+}
+
+.troubleButton:hover .chevron {
+  background: #e63946;
+  color: #fff;
 }
 
 .chevronOpen {
   transform: rotate(180deg);
+  background: #111;
+  color: #fff;
 }
 
 .troubleContent {
-  margin-top: 0.75rem;
+  margin: 0 0 15px 20px;
   line-height: 1.6;
   color: var(--text-secondary, #666);
+}
+
+.troubleRow {
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.troubleRow:last-child {
+  border-bottom: none;
+}
+
+.troubleCode {
+  margin-top: 12px;
+  padding: 16px 20px;
+  background: #f5f5f5;
+  border-left: 3px solid #e02424;
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: auto;
+  white-space: pre;
 }
 
 .troubleContent p {
@@ -214,7 +266,7 @@
   .infoRow {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+    gap: 15px;
   }
 
   .infoLabel {

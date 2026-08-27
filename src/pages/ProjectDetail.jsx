@@ -36,6 +36,7 @@ function ProjectDetail() {
       <div className={styles.header}>
         <span className={styles.type}>{type}</span>
       </div>
+
       <h1 className={styles.title}>{title}</h1>
 
       <div className={styles.description}>
@@ -141,9 +142,22 @@ function ProjectDetail() {
                       <p>
                         <strong>문제</strong> {item.problem}
                       </p>
+
+                      {item.cause && (
+                        <p>
+                          <strong>원인</strong> {item.cause}
+                        </p>
+                      )}
+
                       <p>
                         <strong>해결</strong> {item.solution}
                       </p>
+
+                      {item.code && (
+                        <pre className={styles.troubleCode}>
+                          <code>{item.code}</code>
+                        </pre>
+                      )}
                     </div>
                   )}
                 </div>
