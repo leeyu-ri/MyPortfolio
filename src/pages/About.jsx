@@ -57,20 +57,18 @@ const SKILLS = [
       "반응형 디자인",
       "웹 접근성(ARIA)",
     ],
-    desc: "디자인 실무 경험을 살려 접근성까지 고려한 마크업을 작성합니다.",
+    desc: "디자인 실무 경험을 살려, 디테일과 접근성을 모두 잡은 UI를 구현합니다.",
   },
   {
     category: "형상 관리",
     items: ["Git", "GitHub"],
-    desc: "브랜치 전략과 PR 리뷰 기반으로 팀 프로젝트 협업을 이끌었습니다.",
+    desc: "기능별로 브랜치를 나눠 작업하며 팀 프로젝트 협업을 진행했습니다.",
   },
   {
     category: "백엔드 서비스 및 배포",
     items: [
       "Spring Security",
       "JPA",
-      "Flask",
-      "FastAPI",
       "PostgreSQL · MySQL · Supabase",
       "AWS EC2 · Lightsail · OCI",
       "Docker",

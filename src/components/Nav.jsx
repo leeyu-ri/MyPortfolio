@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 
 function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const isAboutPage = location.pathname === "/about";
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -20,7 +18,7 @@ function Nav() {
   });
 
   return (
-    <nav className={`${styles.nav} ${isAboutPage ? styles.navDark : ""}`}>
+    <nav className={styles.nav}>
       <div className={styles.left}>
         <button
           className={styles.menuButton}
