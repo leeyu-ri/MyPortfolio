@@ -234,7 +234,7 @@ export default function About() {
         <div className={styles.starsLayer3}></div>
 
         <div className={styles.introCard}>
-          <span className={styles.role}>이제, 함께 만들어가겠습니다.</span>
+          <span className={styles.role}>Let's build something together.</span>
           <h1 className={styles.name}>이유리</h1>
 
           <div className={styles.links}>
