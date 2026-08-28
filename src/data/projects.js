@@ -314,7 +314,7 @@ public void onCreate() {
     ],
     features:
       "예약 목록/상세 조회, 예약 취소 백엔드 구현 및 프론트엔드 UX/UI 담당",
-    contribution: "35%",
+    contribution: "40%",
     stack: ["Spring Boot", "Thymeleaf", "AWS EC2", "Docker", "GitHub Actions"],
     github: "https://github.com/leeyu-ri/GalleryReservation",
     demoVideo: "/GalleryReservation.mp4",
