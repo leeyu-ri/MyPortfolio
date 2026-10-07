@@ -243,54 +243,6 @@
   justify-content: center;
 }
 
-.starsLayer1,
-.starsLayer2,
-.starsLayer3 {
-  position: absolute;
-  inset: 0;
-  background-repeat: repeat;
-  animation: moveStars linear infinite;
-}
-
-.starsLayer1 {
-  background-image:
-    radial-gradient(1px 1px at 20px 30px, #fff, transparent),
-    radial-gradient(1px 1px at 90px 80px, #fff, transparent),
-    radial-gradient(1px 1px at 150px 40px, #fff, transparent),
-    radial-gradient(1px 1px at 200px 120px, #fff, transparent);
-  background-size: 250px 250px;
-  animation-duration: 40s;
-  opacity: 0.8;
-}
-
-.starsLayer2 {
-  background-image:
-    radial-gradient(1.5px 1.5px at 50px 100px, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 130px 20px, #fff, transparent),
-    radial-gradient(1.5px 1.5px at 180px 160px, #fff, transparent);
-  background-size: 300px 300px;
-  animation-duration: 60s;
-  opacity: 0.6;
-}
-
-.starsLayer3 {
-  background-image:
-    radial-gradient(2px 2px at 10px 60px, #fff, transparent),
-    radial-gradient(2px 2px at 160px 100px, #fff, transparent);
-  background-size: 400px 400px;
-  animation-duration: 90s;
-  opacity: 0.4;
-}
-
-@keyframes moveStars {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 0 -1000px;
-  }
-}
-
 .introCard {
   position: relative;
   z-index: 1;

@@ -8,7 +8,6 @@
 body {
   background-color: #ffffff;
   color: #000000;
-  font-family: -apple-system, "Pretendard", "Malgun Gothic", sans-serif;
 }
 
 a {
@@ -27,4 +26,16 @@ ol {
     format("woff2-variations");
   font-weight: 1 900;
   font-style: normal;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

@@ -15,7 +15,7 @@ function Nav() {
     };
     document.addEventListener("keydown", handleEsc);
     return () => document.removeEventListener("keydown", handleEsc);
-  });
+  }, []);
 
   return (
     <nav className={styles.nav}>
@@ -45,7 +45,7 @@ function Nav() {
           rel="noopener noreferrer"
         >
           See Resume
-          <span className={styles.srOnly}>(새 탭에서 열림)</span>
+          <span className="sr-only">(새 탭에서 열림)</span>
         </a>
       </div>
 

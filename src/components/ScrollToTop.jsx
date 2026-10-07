@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation(); //pathname을 추적하다가 그 경로가 바뀔 때마다 pathname을 넣어둔다.
 
   useEffect(() => {
     window.scrollTo(0, 0);

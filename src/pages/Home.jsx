@@ -1,30 +1,11 @@
-import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import Hero from "../components/Hero";
 import SecondSection from "../components/SecondSection";
+import useInView from "../hooks/useInView";
 
 function Home() {
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // 한 번만 실행
-        }
-      },
-      { threshold: 0.2 }, // 20% 보이면 트리거
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const [sectionRef, isVisible] = useInView();
 
   return (
     <div>
@@ -57,7 +38,7 @@ function Home() {
           <Link to="/about" className={styles.overviewCard}>
             <span className={styles.overviewCardTitle}>About</span>
             <p className={styles.overviewCardDesc}>
-              나의 경험과 생각, 프론트엔드 개발자로서의 방향
+              나의 경험과 생각, 개발자로서의 방향
             </p>
             <span className={styles.overviewCardArrow}>↗</span>
           </Link>

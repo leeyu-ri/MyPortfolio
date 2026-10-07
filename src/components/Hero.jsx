@@ -18,7 +18,7 @@ export default function Hero() {
       <h1 className={styles.heroTitle}>
         <span className={styles.line}>
           <span className={styles.mask}>
-            <span className={innerClass()} style={{ transitionDelay: "0.5ms" }}>
+            <span className={innerClass()} style={{ transitionDelay: "0ms" }}>
               Thorough
             </span>
           </span>
@@ -30,7 +30,7 @@ export default function Hero() {
         </span>
 
         <span className={`${styles.line} ${styles.indent1}`}>
-          <img src={tomatoImg} className={styles.icon} />
+          <img src={tomatoImg} className={styles.icon} alt="" />
           <span className={styles.mask}>
             <span className={innerClass()} style={{ transitionDelay: "150ms" }}>
               Proactive
@@ -44,7 +44,7 @@ export default function Hero() {
               Resourceful
             </span>
           </span>
-          <img src={NotebookImg} className={styles.iconNoteBook} />
+          <img src={NotebookImg} className={styles.iconNoteBook} alt="" />
         </span>
 
         <span className={`${styles.line} ${styles.indent3}`}>

@@ -107,7 +107,7 @@ useEffect(() => {
         problem:
           "STOMP 핸드셰이크 과정에서 JWT 헤더가 전달되지 않아 Spring Security 인증에 실패하며 WebSocket 연결이 거부됐습니다. 실시간 채팅 및 알림 기능 전체가 동작하지 않았습니다.",
         cause:
-          "일반 HTTP 요청과 달리 WebSocket 연결은 Spring Security 필터를 거치지 않아 토큰 검증 로직이 적용되지 않았습니다. 클라이언트도 STOMP 연결 시 Authorization 헤더를 포함하지 않고 있었습니다.",
+          "일반 HTTP 요청과 달리 WebSocket 연결 이후 STOMP 메시지는 HTTP 필터체인을 거치지 않아 토큰 검증 로직이 적용되지 않았습니다. 클라이언트도 STOMP 연결 시 Authorization 헤더를 포함하지 않고 있었습니다.",
         solution:
           "클라이언트의 connectHeaders에 Authorization 헤더를 추가하고, 서버에서 ChannelInterceptor로 STOMP 연결 시 토큰을 직접 검증하도록 수정했습니다.",
         code: `// 클라이언트: STOMP 연결 시 JWT 헤더 포함
@@ -349,7 +349,10 @@ public void onCreate() {
       ],
       [
         { text: "About 페이지에 " },
-        { text: "캔버스 기반 별 배경 애니메이션", highlight: true },
+        {
+          text: "CSS radial-gradient 기반 별 배경 애니메이션",
+          highlight: true,
+        },
         { text: " 직접 구현" },
       ],
       [
@@ -367,7 +370,7 @@ public void onCreate() {
       "Home 스크롤 애니메이션, 프로젝트 카드 UI, 상세 페이지 아코디언, About 페이지 배경 애니메이션 직접 기획 및 구현",
     contribution: "100%",
     stack: ["React", "Vite", "React Router", "CSS Modules"],
-    github: "https://github.com/leeyu-ri/portfolio",
+    github: "https://github.com/leeyu-ri/MyPortfolio",
     demoVideo: "/MyPortfolio.mp4",
     poster: "/MyPortfolio2.png",
     demo: "https://leeyuri-portfolio.vercel.app/",

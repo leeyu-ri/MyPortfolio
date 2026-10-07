@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
+import useInView from "../hooks/useInView";
 
 function ProjectCard({ project }) {
   const { id, title, subtitle, type, demoVideo, poster } = project;
   const videoRef = useRef(null);
-  const cardRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [cardRef, isVisible] = useInView();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -21,24 +21,6 @@ function ProjectCard({ project }) {
       videoRef.current.currentTime = 0;
     }
   };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect(); // 한 번만 실행
-        }
-      },
-      { threshold: 0.2 }, // 20% 보이면 트리거
-    );
-    // 화면을 그리기 전에 다른 화면으로 이동했을 때 에러 방지하기 위해
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Link

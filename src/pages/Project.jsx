@@ -12,9 +12,7 @@ function Project() {
         지속적으로 쌓아가고 있습니다.
       </p>
       <div className={styles.projectList}>
-        {projects.map((project) => (
-          <ProjectCard key={project.id} project={project} />
-        ))}
+        {projects.map((project) => ( <ProjectCard key={project.id} project={project} />  ))}
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ function Footer() {
           className={styles.footer__link}
         >
           GitHub
-          <span className={styles.srOnly}>(새 탭에서 열림)</span>
+          <span className="sr-only">(새 탭에서 열림)</span>
         </a>
         <a
           href="https://www.instagram.com/rieeuly/?hl=ko"
@@ -23,6 +23,7 @@ function Footer() {
           className={styles.footer__link}
         >
           instagram
+          <span className="sr-only">(새 탭에서 열림)</span>
         </a>
       </div>
       <p className={styles.footer__copyright}>

@@ -22,21 +22,9 @@
   margin-bottom: 16px;
 }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #e02424;
-  display: inline-block;
-}
-
 .type {
   color: #888;
   font-size: 16px;
-}
-
-.period {
-  color: #999;
 }
 
 .title {
@@ -46,14 +34,6 @@
   border-top: 2px solid #000;
   padding-top: 45px;
   margin: 0 0 30px 0;
-}
-
-.subtitle {
-  font-size: 22px;
-  color: #444;
-  font-weight: 600;
-  margin-bottom: 24px;
-  padding-top: 30px;
 }
 
 .description {
@@ -78,34 +58,6 @@
 .highlight {
   color: #e02424;
   font-weight: 500;
-}
-
-.stackList {
-  display: flex;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-  margin-bottom: 40px;
-}
-
-.stackItem {
-  font-size: 14px;
-  padding: 6px 14px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-}
-
-.links {
-  display: flex;
-
-  gap: 16px;
-}
-
-.link {
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: underline;
-  color: #000;
 }
 
 .infoSection {
@@ -195,14 +147,14 @@
   transform: rotate(0deg);
 }
 
-.troubleButton:hover .chevron {
-  background: #e63946;
-  color: #fff;
-}
-
 .chevronOpen {
   transform: rotate(180deg);
   background: #111;
+  color: #fff;
+}
+
+.troubleButton:hover .chevron {
+  background: #e63946;
   color: #fff;
 }
 

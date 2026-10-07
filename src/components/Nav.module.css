@@ -12,14 +12,6 @@
   transition: opacity 0.2s ease;
 }
 
-.navDark .line {
-  background-color: #fff;
-}
-
-.navDark .homeButton {
-  color: #e02424;
-}
-
 .left {
   display: flex;
   align-items: center;
@@ -63,13 +55,6 @@
 
 .homeButton:hover {
   opacity: 0.5;
-}
-
-.tomatoIcon {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 50%;
 }
 
 .dropdown {
@@ -119,15 +104,4 @@
 .ctaPill:hover {
   background: #c11c1c;
   transform: translateY(-1px);
-}
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }

@@ -12,7 +12,6 @@ function ProjectDetail() {
 
   const {
     title,
-    subtitle,
     period,
     type,
     description,

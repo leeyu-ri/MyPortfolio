@@ -1,5 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import useScrollStep from "../hooks/useScrollStep";
 import styles from "./About.module.css";
+import StarBackground from "../components/StarBackground";
 import h1 from "../assets/h1.jpg";
 import h2 from "../assets/h2.jpg";
 import h3 from "../assets/h3.jpg";
@@ -79,42 +81,9 @@ const SKILLS = [
   },
 ];
 
+// 스크롤 애니메이션에서 몇단계로 나눌지 미리 계산한 상수
+// skills 배열 길이 (4) + 첫 인트로 화면 Built To Ship (1) = 5
 const SKILL_STEPS = 1 + SKILLS.length;
-
-function useScrollStep(ref, steps) {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    let ticking = false;
-
-    function update() {
-      const el = ref.current;
-      if (!el) return;
-
-      const rect = el.getBoundingClientRect();
-      const total = rect.height - window.innerHeight;
-      const scrolled = Math.min(Math.max(-rect.top, 0), total);
-      const progress = total > 0 ? scrolled / total : 0;
-      const next = Math.min(steps - 1, Math.floor(progress * steps));
-
-      setIndex(next);
-      ticking = false;
-    }
-
-    function handleScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    update();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [ref, steps]);
-
-  return index;
-}
 
 export default function About() {
   const [activeKey, setActiveKey] = useState(STRENGTHS[0].key);
@@ -190,9 +159,7 @@ export default function About() {
         style={{ height: `${SKILL_STEPS * 100}vh` }}
       >
         <div className={styles.skillSticky}>
-          <div className={styles.starsLayer1}></div>
-          <div className={styles.starsLayer2}></div>
-          <div className={styles.starsLayer3}></div>
+          <StarBackground />
 
           <div className={styles.skillContent}>
             <div
@@ -227,9 +194,7 @@ export default function About() {
       </section>
 
       <section className={styles.starHero}>
-        <div className={styles.starsLayer1}></div>
-        <div className={styles.starsLayer2}></div>
-        <div className={styles.starsLayer3}></div>
+        <StarBackground />
 
         <div className={styles.introCard}>
           <span className={styles.role}>Let's build something together.</span>
@@ -239,11 +204,6 @@ export default function About() {
             <div className={styles.linkLine}>
               <span className={styles.linkTag}>Birth</span>
               <p className={styles.linkValue}>99.06.10</p>
-            </div>
-
-            <div className={styles.linkLine}>
-              <span className={styles.linkTag}>Phone</span>
-              <p className={styles.linkValue}>010-7734-5727</p>
             </div>
 
             <div className={styles.linkLine}>

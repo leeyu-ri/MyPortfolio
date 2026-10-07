@@ -1,5 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import useInView from "../hooks/useInView";
+import useScrollStep from "../hooks/useScrollStep";
 import styles from "./SecondSection.module.css";
+import StarBackground from "./StarBackground";
 import p1 from "../assets/p1.jpg";
 import p2 from "../assets/p2.jpg";
 import p3 from "../assets/p3.jpg";
@@ -12,68 +14,8 @@ const images = [p1, p2, p3, p4, p5, p6, p7];
 const STEP_VH = 70;
 
 export default function SecondSection() {
-  const wrapperRef = useRef(null);
-  const [visible, setVisible] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 },
-    );
-
-    if (wrapperRef.current) {
-      observer.observe(wrapperRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    let ticking = false;
-
-    function updateIndex() {
-      const wrapper = wrapperRef.current;
-      if (!wrapper) return;
-
-      const rect = wrapper.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const scrollableDistance = wrapper.offsetHeight - viewportHeight;
-
-      if (scrollableDistance <= 0) {
-        ticking = false;
-        return;
-      }
-
-      const scrolled = -rect.top;
-      const progress = Math.min(Math.max(scrolled / scrollableDistance, 0), 1);
-      const index = Math.min(
-        images.length - 1,
-        Math.floor(progress * images.length),
-      );
-
-      setActiveIndex(index);
-      ticking = false;
-    }
-
-    function handleScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(updateIndex);
-        ticking = true;
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    updateIndex();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  const [wrapperRef, visible] = useInView();
+  const activeIndex = useScrollStep(wrapperRef, images.length);
   return (
     <div
       ref={wrapperRef}
@@ -83,9 +25,7 @@ export default function SecondSection() {
       <div
         className={`${styles.secondSection} ${visible ? styles.visible : ""}`}
       >
-        <div className={styles.starsLayer1}></div>
-        <div className={styles.starsLayer2}></div>
-        <div className={styles.starsLayer3}></div>
+        <StarBackground />
 
         <div className={styles.secondMain}>
           <div className={styles.frame}>
