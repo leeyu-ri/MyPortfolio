@@ -319,6 +319,8 @@ public void onCreate() {
     github: "https://github.com/leeyu-ri/GalleryReservation",
     demoVideo: "/GalleryReservation.mp4",
     poster: "/GalleryReservation2.png",
+    // EC2는 Elastic IP가 없으면 재시작할 때 IP가 바뀌고,
+    // 비용 때문에 서버를 내리면 링크가 죽는다. 지원 전에 접속 여부 꼭 확인하기
     demo: "http://16.176.8.20/",
   },
   {
@@ -373,7 +375,8 @@ public void onCreate() {
     github: "https://github.com/leeyu-ri/MyPortfolio",
     demoVideo: "/MyPortfolio.mp4",
     poster: "/MyPortfolio2.png",
-    demo: "https://leeyuri-portfolio.vercel.app/",
+    // 배포 URL은 대표 도메인으로 통일함.
+    demo: "https://leeyuri.dev",
   },
 ];
 
