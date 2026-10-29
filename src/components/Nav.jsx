@@ -9,6 +9,10 @@ function Nav() {
     setIsMenuOpen((prev) => !prev);
   };
 
+  // ESC 키로 메뉴 닫기
+  // 빈 배열 [] 이라 처음 렌더링될 때 한 번만 리스너를 달고,
+  // 컴포넌트가 사라질 때 return에서 리스너를 뗀다 (메모리에 남지 않도록)
+  // 메뉴가 닫힌 상태에서 ESC를 눌러도 이미 false라 아무 변화가 없다.
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") setIsMenuOpen(false);
