@@ -51,7 +51,7 @@ function ProjectCard({ project }) {
           aria-hidden="true"
         />
       </div>
-      {/*  */}
+
       <div className={styles.info}>
         <span className={styles.type}>{type}</span>
         <h3 className={styles.title}>{title}</h3>

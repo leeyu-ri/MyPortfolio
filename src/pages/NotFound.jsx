@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./NotFound.module.css";
 
 // 존재하지 않는 주소로 들어왔을 때 보여주는 화면
-// vercel.jsx이 실제 파일이 없는 모든 주소를 index.html로 보내기 때문에
+// vercel.json이 실제 파일이 없는 모든 주소를 index.html로 보내기 때문에
 // 없는 주소는 App.jsx의 path="*를 거쳐 여기로 온다.
 
 function NotFound() {
