@@ -6,6 +6,10 @@ import styles from "./Hero.module.css";
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
 
+  // 히어로 글자의 등장 애니메이션(커튼 걷히는 효과)을 재생하기 위한 코드.
+  // CSS transition은 상태가 바뀔 때만 재생되므로, 먼저 숨김 상태(loaded=false)로 그린 뒤
+  // 다음 프레임에 loaded를 true로 바꿔 show 클래스를 붙인다.
+  // 컴포넌트가 사라지면 예약된 프레임을 취소한다.
   useEffect(() => {
     const raf = requestAnimationFrame(() => setLoaded(true));
     return () => cancelAnimationFrame(raf);

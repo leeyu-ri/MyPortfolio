@@ -2,13 +2,15 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import projects from "../data/projects";
 import styles from "./ProjectDetail.module.css";
+import NotFound from "./NotFound";
 
 function ProjectDetail() {
   const { id } = useParams();
   const project = projects.find((p) => p.id === id);
   const [openId, setOpenId] = useState(null);
 
-  if (!project) return <div>프로젝트를 찾을 수 없습니다.</div>;
+  // 주소의 id에 해당하는 프로젝트가 없으면 404 화면을 보여준다.
+  if (!project) return <NotFound />;
 
   const {
     title,

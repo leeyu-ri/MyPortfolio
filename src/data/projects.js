@@ -11,6 +11,8 @@ const projects = [
         title: "프론트엔드 API URL 하드코딩 문제 (localhost:8080)",
         problem:
           "로컬 개발 환경에서 http://localhost:8080/api로 하드코딩된 API 주소가 14개 파일에 산재해 있어, 배포 후 프론트엔드가 서버 API 대신 로컬호스트로 요청을 보내는 문제가 발생했습니다.",
+        cause:
+          "개발 환경과 배포 환경의 API 주소를 분리하지 않고, 로컬 서버 주소를 절대 경로로 각 파일에 직접 적어두었기 때문입니다.",
         solution:
           "Nginx에서 /api 경로를 백엔드(localhost:8080)로 프록시하도록 설정하고, 프론트엔드의 모든 BASE_URL을 /api(상대 경로)로 통일했습니다.",
         code: `// Before
@@ -52,14 +54,6 @@ sudo chmod -R 755 /home/ubuntu/WorkSync/frontend/dist`,
   ├─ ./gradlew build -x test  → worksync.jar 생성
   ├─ npm run build             → dist/ 생성
   └─ SCP → EC2 전송 → systemd restart`,
-      },
-      {
-        id: "ts-5",
-        title: "로그인 계정 잠금 문제",
-        problem:
-          "테스트 중 비밀번호를 여러 번 틀려 계정이 잠기는 현상이 발생했습니다. (locked_until 컬럼에 미래 시각이 저장되어 로그인 불가)",
-        solution: "Supabase에서 직접 잠금 상태를 초기화했습니다.",
-        code: `UPDATE employee SET locked_until = NULL, login_fail_count = 0;`,
       },
       {
         id: "ts-6",
@@ -128,9 +122,9 @@ public Message<?> preSend(Message<?> message, MessageChannel channel) {
       },
       {
         id: "ts-9",
-        title: "대시보드 다중 조회 시 N+1 쿼리 성능 저하",
+        title: "대시보드 조회 시 전체 목록 조회로 인한 성능 저하",
         problem:
-          "대시보드 진입 시 결재·업무·근태·알림을 개별 API로 각각 조회하면서 연관관계 지연 로딩이 반복 실행되어 응답 속도가 약 3배 저하됐습니다.",
+          "대시보드 진입 시 결재·업무·근태·알림 데이터를 각각 전체 목록으로 조회하면서 응답 속도가 저하됐습니다.",
         cause:
           "각 도메인 서비스가 목록을 전부 조회한 뒤 애플리케이션 레벨에서 카운팅하는 방식이어서 불필요한 쿼리가 다수 발생했습니다.",
         solution:
@@ -329,6 +323,59 @@ public void onCreate() {
     subtitle: "개인 포트폴리오 웹사이트",
     period: "2026.07 ~ 진행중",
     type: "개인 프로젝트",
+    troubleshooting: [
+      {
+        id: "ts-1",
+        title: "상세 페이지 새로고침 시 404 NOT_FOUND",
+        problem:
+          "사이트 안에서 클릭으로 이동하면 정상인데, 프로젝트 상세 페이지(/project/1)에서 새로고침하거나 주소를 직접 입력하면 Vercel의 404 NOT_FOUND 페이지가 표시되었습니다. 로컬 개발 서버에서는 재현되지 않고 배포 후에만 발생했습니다.",
+        cause:
+          "React Router는 브라우저 안에서 경로를 처리하는 클라이언트 사이드 라우팅이라, 빌드 결과물에는 index.html 하나만 존재합니다. 새로고침하면 브라우저가 서버에 /project/1 파일을 직접 요청하는데, 해당 파일이 없어 서버가 404를 반환했습니다. 로컬에서는 Vite 개발 서버가 모든 경로에 index.html을 자동으로 응답해주기 때문에 드러나지 않았습니다.",
+        solution:
+          '프로젝트 루트에 vercel.json을 추가해 실제 파일이 없는 모든 경로를 index.html로 응답하도록 rewrites를 설정했습니다. 존재하지 않는 주소는 React Router의 path="*" 경로로 NotFound 페이지를 보여주도록 처리했습니다. 이 과정에서 클라이언트 라우팅과 서버 라우팅의 차이, 그리고 SPA를 배포할 때 서버 측 설정이 필요하다는 점을 배웠습니다.',
+        code: `// vercel.json
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+
+// App.jsx
+<Route path="*" element={<NotFound />} />`,
+      },
+      {
+        id: "ts-2",
+        title: '상세 페이지 진입 시 "프로젝트를 찾을 수 없습니다" 표시',
+        problem:
+          '프로젝트 카드를 클릭해 상세 페이지로 이동하면 데이터가 있는데도 "프로젝트를 찾을 수 없습니다"가 표시되었습니다.',
+        cause:
+          'useParams()는 URL에서 꺼낸 값을 항상 문자열로 반환합니다. projects.js의 id는 숫자(1)로 저장되어 있어, find()에서 p.id === id 비교 시 1 === "1"이 되어 타입이 달라 false가 되었습니다.',
+        solution:
+          'projects.js의 id를 문자열("1", "2", "3")로 변경해 URL 파라미터와 타입을 일치시켰습니다. URL에서 가져온 값은 항상 문자열이라는 점과, ===는 값뿐 아니라 타입까지 비교한다는 점을 배웠습니다.',
+        code: `// Before
+{ id: 1, title: "WorkSync", ... }
+
+// After
+{ id: "1", title: "WorkSync", ... }
+
+// ProjectDetail.jsx
+const { id } = useParams(); // "1" (문자열)
+const project = projects.find((p) => p.id === id);`,
+      },
+      {
+        id: "ts-3",
+        title: "src/assets에 둔 데모 영상이 재생되지 않음",
+        problem:
+          "프로젝트 카드에 넣은 데모 영상(WorkSyncDemo.mp4)과 포스터 이미지가 화면에 나타나지 않았습니다.",
+        cause:
+          'Vite는 src 폴더 안의 파일을 import로 참조했을 때만 빌드에 포함하고, 파일명에 해시를 붙여 내보냅니다. projects.js에서 "src/assets/WorkSyncDemo.mp4"처럼 경로를 문자열로만 적어두어, Vite가 해당 파일을 빌드 결과물에 포함하지 않았습니다.',
+        solution:
+          '영상과 포스터 이미지를 public 폴더로 옮기고 "/WorkSyncDemo.mp4"처럼 루트 경로로 참조하도록 수정했습니다. public 폴더의 파일은 빌드 시 이름 그대로 복사됩니다. Vite에서 src/assets는 import로, public은 절대 경로로 사용한다는 차이를 배웠습니다.',
+        code: `// Before
+demoVideo: "src/assets/WorkSyncDemo.mp4",
+
+// After (public 폴더로 이동)
+demoVideo: "/WorkSyncDemo.mp4",`,
+      },
+    ],
     description: [
       [
         { text: "제가 진행한 프로젝트와 기술 스택을 소개하는 " },
